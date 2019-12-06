@@ -2,22 +2,18 @@
 <html>
 <style>
 /* The container */
-
+*{
+    font-family: sans-serif;
+}
 
 .container {
-  position: relative;
-  padding-left: 2%;
-  padding-top: 1%;
-  margin-bottom: 2%;
-  margin-right: 15%;
   cursor: pointer;
-  font-size: 400%;
+  font-size:70px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-
 
 /* Hide the browser's default radio button */
 .container input {
@@ -29,8 +25,6 @@
 /* Create a custom radio button */
 .checkmark {
   position: absolute;
-  top: 0;
-  left: 25%;
   height: 100px;
   width: 100px;
   background-color: lightskyblue;
@@ -56,42 +50,62 @@
 
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
- 	top: 0;
-	left: 0;
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
 	background: lightseagreen;
 }
-
+/* make text visible */
 .container span.v {
     position: absolute;
     z-index: 1;
-    left: 35px;
-    font-family: sens-serif;
+    left: 25px;
+    top:7px;
+}
+#A {
+    position:absolute;
+    top:100px;
+    left: 20px;
+}
+#B {
+    position:absolute;
+    top:300px;
+    left: 20px;
+}
+#C {
+    position:absolute;
+    top:100px;
+    left: 400px;
+}
+#D {
+    position:absolute;
+    top:300px;
+    left: 300px;
 }
 
 </style>
+
 <body>
 
 <h1>Choose One</h1>
-<label class="container"><span class ="v">A</span>
+<label id = "A" class="container" ><span class ="v">A</span>
   <input type="radio" checked="checked" name="radio">
   <span class="checkmark"></span>
 </label>
-<label class="container"><span class = "v">B</span>
+<label id = "B" class="container"><span class = "v">B</span>
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</br>
+</br>
+</label>
+<label id = "C" class="container"><span class = "v">C</span>
   <input type="radio" name="radio">
   <span class="checkmark"></span>
 </label>
-<label class="container"><span class = "v">C</span>
+<label id = "D" class="container"><span class = "v">D</span>
   <input type="radio" name="radio">
   <span class="checkmark"></span>
 </label>
-<label class="container"><span class = "v">D</span>
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
-
 
 
 </body>
