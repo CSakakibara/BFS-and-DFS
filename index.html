@@ -1,112 +1,122 @@
 <!DOCTYPE html>
 <html>
 <style>
-/* The container */
-*{
-    font-family: sans-serif;
-}
+    /* The container */
+    * {
+        font-family: sans-serif;
+    }
 
-.container {
-  cursor: pointer;
-  font-size:70px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+    .container {
+        cursor: pointer;
+        font-size: 70px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        z-index: 9;
+    }
 
-/* Hide the browser's default radio button */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
+    /* Hide the browser's default radio button */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
 
-/* Create a custom radio button */
-.checkmark {
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  background-color: lightskyblue;
-  border-radius: 50%;
-}
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: lightskyblue;
+        border-radius: 50%;
+    }
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color:lightblue;
-}
+    /* On mouse-over, add a grey background color */
+    .container:hover input~.checkmark {
+        background-color: lightblue;
+    }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
 
-/* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked~.checkmark:after {
+        display: block;
+    }
 
-/* Style the indicator (dot/circle) */
-.container .checkmark:after {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	background: lightseagreen;
-}
-/* make text visible */
-.container span.v {
-    position: absolute;
-    z-index: 1;
-    left: 25px;
-    top:7px;
-}
-#A {
-    position:absolute;
-    top:100px;
-    left: 20px;
-}
-#B {
-    position:absolute;
-    top:300px;
-    left: 20px;
-}
-#C {
-    position:absolute;
-    top:100px;
-    left: 400px;
-}
-#D {
-    position:absolute;
-    top:300px;
-    left: 300px;
-}
+    /* Style the indicator (dot/circle) */
+    .container .checkmark:after {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: lightseagreen;
+    }
 
+    /* make text visible */
+    .container span.v {
+        position: absolute;
+        z-index: 1;
+        left: 25px;
+        top: 7px;
+    }
+
+    #vertexA {
+        position: absolute;
+        top: 80px;
+        left: 148px;
+    }
+
+    #vertexB {
+        position: absolute;
+        top: 317px;
+        left: 211px;
+    }
+
+    #vertexC {
+        position: absolute;
+        top: 274px;
+        left: 68px;
+    }
+
+    #vertexD {
+        position: absolute;
+        top: 500px;
+        left: 503px;
+    }
 </style>
 
 <body>
 
-<h1>Choose One</h1>
-<label id = "A" class="container" ><span class ="v">A</span>
-  <input type="radio" checked="checked" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label id = "B" class="container"><span class = "v">B</span>
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</br>
-</br>
-</label>
-<label id = "C" class="container"><span class = "v">C</span>
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label id = "D" class="container"><span class = "v">D</span>
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
+    <h1>Choose One</h1>
+
+    <label id="vertexA" class="container"><span class="v">A</span>
+        <input type="radio" checked="checked" name="radio">
+        <span class="checkmark"></span>
+        <div></div>
+    </label>
 
 
+    <label id="vertexB" class="container"><span class="v">B</span>
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+        </br>
+        </br>
+    </label>
+    <label id="vertexC" class="container"><span class="v">C</span>
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+    </label>
+    <label id="vertexD" class="container"><span class="v">D</span>
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+    </label>
+
+<script src="./index.js"></script>
 </body>
+
 </html>
