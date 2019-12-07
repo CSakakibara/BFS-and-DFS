@@ -1,3 +1,22 @@
+/*
+const lines = require('./lines')
+
+function breadthFirstSearch() {
+    var checkboxMarcado = document.querySelector("input[name=radio]:checked")
+    var vertexChecked = document.querySelector("input[name=radio]:checked + .checkmark:after")
+    var containerChecked = vertexChecked.parentElement()
+    vertexChecked.style.background = "black"
+}
+
+var a = document.querySelector("#vertexA .checkmark")
+var b = document.querySelector("#vertexB .checkmark")
+var c = document.querySelector("#vertexC .checkmark")
+var d = document.querySelector("#vertexD .checkmark")
+
+
+lines(a, b)
+*/
+
 function getCenter(element) {
     var x = element.getBoundingClientRect().x + element.getBoundingClientRect().width / 2
     var y = element.getBoundingClientRect().y + element.getBoundingClientRect().height / 2
@@ -17,50 +36,13 @@ function getMiddlePoint(positionA, positionB) {
     return positionC
 }
 
-
-function makeLine(positionA, positionB) {
-    var width = getDistance(positionA, positionB)
-    var middlePoint = getMiddlePoint(positionA, positionB)
-    var left = middlePoint.x - width/2
-    var top = middlePoint.y
-    var rad = getAngle(positionA, positionB)
-
-    var line = document.createElement("div")
-    line.style.width = width + "px"
-    line.style.height = "2px"
-    line.style.background = "black"
-    line.style.position = "absolute"
-    line.style.top = top + "px"
-    line.style.left = left + "px"
-    line.style.transform = `rotate(${rad}rad)`
-
-
-    document.body.appendChild(line)
-}
-
-
-
-
-var a = document.querySelector("#vertexA .checkmark")
-var b = document.querySelector("#vertexB .checkmark")
-var c = document.querySelector("#vertexC .checkmark")
-var d = document.querySelector("#vertexD .checkmark")
-
-var positionA = getCenter(a)
-var positionB = getCenter(b)
-var positionC = getCenter(c)
-var positionD = getCenter(d)
-
-makeLine(positionA, positionC)
-
-function getAngle(positionD, positionC) {
-
-    var x1 = positionD.x
-    var x2 = positionC.x
-    var y1 = positionD.y
-    var y2 = positionC.y
+function getAngle(positionA, positionB) {
+    var h = getDistance(positionA, positionB)
+    var x1 = positionA.x
+    var x2 = positionB.x
+    var y1 = positionA.y
+    var y2 = positionB.y
     var pi = Math.PI
-    var h = getDistance(positionD, positionC)
     if ((x1 - x2 >= 0) && (y1 - y2 >= 0)) { //primeiro quadrante
         return (Math.asin((y1 - y2) / h))
     } else if ((x1 - x2 < 0) && (y1 - y2 >= 0)) {//segundo quadrante
@@ -72,3 +54,32 @@ function getAngle(positionD, positionC) {
     }
 }
 
+function makeLine(elementA, elementB) {
+    var centerPositionA = getCenter(elementA)
+    var centerPositionB = getCenter(elementB)
+    var width = getDistance(centerPositionA, centerPositionB)
+    var middlePoint = getMiddlePoint(centerPositionA, centerPositionB)
+    var left = middlePoint.x - width/2
+    var top = middlePoint.y
+    var rad = getAngle(centerPositionA, centerPositionB)
+
+    var line = document.createElement("div")
+    line.style.width = width + "px"
+    line.style.height = "2px"
+    line.style.background = "black"
+    line.style.position = "absolute"
+    line.style.top = top + "px"
+    line.style.left = left + "px"
+    line.style.transform = `rotate(${rad}rad)`
+
+    document.body.appendChild(line)
+}
+
+var a = document.querySelector("#vertexA .checkmark")
+var b = document.querySelector("#vertexB .checkmark")
+var c = document.querySelector("#vertexC .checkmark")
+var d = document.querySelector("#vertexD .checkmark")
+
+makeLine(a,b)
+makeLine(b,c)
+makeLine(b,d)
