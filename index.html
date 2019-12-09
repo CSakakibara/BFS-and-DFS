@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <style>
-    /* The container */
     * {
         font-family: sans-serif;
     }
-    body{
+
+    body {
         background-color: lightslategray;
     }
+
     .container {
         cursor: pointer;
         font-size: 70px;
@@ -38,57 +39,51 @@
     .container:hover input~.checkmark {
         background-color: lightblue;
     }
-
-    /* Create the indicator (the dot/circle - hidden when not checked) */
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-
-    /* Show the indicator (dot/circle) when checked */
-    .container input:checked~.checkmark:after {
-        display: block;
-    }
-
-    /* Style the indicator (dot/circle) */
-    .container .checkmark:after {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
+    .container input:checked~.checkmark{
         background: lightseagreen;
     }
-
     /* make text visible */
     .container span.v {
         position: absolute;
         z-index: 1;
-        left: 25px;
-        top: 7px;
+        left: 26px;
+        top: 9px;
     }
 
     #vertexA {
         position: absolute;
+        left: 180px;
         top: 80px;
-        left: 148px;
     }
 
     #vertexB {
         position: absolute;
-        top: 317px;
-        left: 211px;
+        left: 400px;
+        top: 20px;
     }
 
     #vertexC {
         position: absolute;
-        top: 274px;
-        left: 68px;
+        left: 700px;
+        top: 50px;
     }
 
     #vertexD {
         position: absolute;
-        top: 500px;
-        left: 503px;
+        left: 1200px;
+        top: 30px;
+    }
+
+    #vertexE {
+        position: absolute;
+        left: 15px;
+        top: 250px;
+    }
+
+    #vertexF {
+        position: absolute;
+        left: 250px;
+        top: 270px;
     }
 </style>
 
@@ -96,7 +91,7 @@
 
     <h1>Choose One</h1>
 
-    <label  id="vertexA" class="container"><span class="v">A</span>
+    <label id="vertexA" class="container"><span class="v">A</span>
         <input type="radio" checked="checked" name="radio">
         <span class="checkmark"></span>
         <div></div>
@@ -106,8 +101,6 @@
     <label id="vertexB" class="container"><span class="v">B</span>
         <input type="radio" name="radio">
         <span class="checkmark"></span>
-        </br>
-        </br>
     </label>
     <label id="vertexC" class="container"><span class="v">C</span>
         <input type="radio" name="radio">
@@ -117,10 +110,23 @@
         <input type="radio" name="radio">
         <span class="checkmark"></span>
     </label>
+    <label id="vertexE" class="container"><span class="v">E</span>
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+    </label>
+    <label id="vertexF" class="container"><span class="v">F</span>
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+    </label>
 
-    <button type="button" onclick="breadthFirstSearch()">Botao
+    <button type="button" onclick="breadthFirstSearch()">Busca em Largura
+    </button><br>
+    <button type="button" onclick="breadthFirstSearch()">Busca em Profundidade
     </button>
+
+    <script src="./lines.js"></script>
     <script src="./index.js"></script>
+    <script src="./search.js"></script>
 </body>
 
 </html>
