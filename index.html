@@ -9,7 +9,7 @@
         background-color: lightslategray;
     }
 
-    .container {
+    .vertex {
         cursor: pointer;
         font-size: 70px;
         -webkit-user-select: none;
@@ -20,14 +20,14 @@
     }
 
     /* Hide the browser's default radio button */
-    .container input {
+    .vertex input {
         position: absolute;
         opacity: 0;
         cursor: pointer;
     }
 
     /* Create a custom radio button */
-    .checkmark {
+    .circle {
         position: absolute;
         height: 100px;
         width: 100px;
@@ -36,51 +36,53 @@
     }
 
     /* On mouse-over, add a background color */
-    .container:hover input~.checkmark {
+    .vertex:hover input~.circle {
         background-color: lightblue;
     }
-    .container input:checked~.checkmark{
+
+    .vertex input:checked~.circle {
         background: lightseagreen;
     }
+
     /* make text visible */
-    .container span.v {
+    .title {
         position: absolute;
         z-index: 1;
         left: 26px;
         top: 9px;
     }
 
-    #vertexA {
+    #A {
         position: absolute;
         left: 180px;
         top: 80px;
     }
 
-    #vertexB {
+    #B {
         position: absolute;
         left: 400px;
         top: 20px;
     }
 
-    #vertexC {
+    #C {
         position: absolute;
         left: 700px;
         top: 50px;
     }
 
-    #vertexD {
+    #D {
         position: absolute;
         left: 1200px;
         top: 30px;
     }
 
-    #vertexE {
+    #E {
         position: absolute;
         left: 15px;
         top: 250px;
     }
 
-    #vertexF {
+    #F {
         position: absolute;
         left: 250px;
         top: 270px;
@@ -91,32 +93,38 @@
 
     <h1>Choose One</h1>
 
-    <label id="vertexA" class="container"><span class="v">A</span>
+    <label id="A" class="vertex">
         <input type="radio" checked="checked" name="radio">
-        <span class="checkmark"></span>
-        <div></div>
+        <span class="title">A</span>
+        <span class="circle"></span>
     </label>
 
+    <label id="B" class="vertex">
+        <input type="radio" name="radio">
+        <span class="title">B</span>
+        <span class="circle"></span>
+    </label>
 
-    <label id="vertexB" class="container"><span class="v">B</span>
+    <label id="C" class="vertex">
         <input type="radio" name="radio">
-        <span class="checkmark"></span>
+        <span class="title">C</span>
+        <span class="circle"></span>
     </label>
-    <label id="vertexC" class="container"><span class="v">C</span>
+
+    <label id="D" class="vertex">
         <input type="radio" name="radio">
-        <span class="checkmark"></span>
+        <span class="title">D</span>
+        <span class="circle"></span>
     </label>
-    <label id="vertexD" class="container"><span class="v">D</span>
+    <label id="E" class="vertex">
         <input type="radio" name="radio">
-        <span class="checkmark"></span>
+        <span class="title">E</span>
+        <span class="circle"></span>
     </label>
-    <label id="vertexE" class="container"><span class="v">E</span>
+    <label id="F" class="vertex">
         <input type="radio" name="radio">
-        <span class="checkmark"></span>
-    </label>
-    <label id="vertexF" class="container"><span class="v">F</span>
-        <input type="radio" name="radio">
-        <span class="checkmark"></span>
+        <span class="title">F</span>
+        <span class="circle"></span>
     </label>
 
     <button type="button" onclick="breadthFirstSearch()">Busca em Largura

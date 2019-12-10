@@ -1,7 +1,7 @@
-var vertexA = document.querySelector("#vertexA .checkmark")
-var vertexB = document.querySelector("#vertexB .checkmark")
-var vertexC = document.querySelector("#vertexC .checkmark")
-var vertexD = document.querySelector("#vertexD .checkmark")
+var vertexA = document.querySelector("#A .circle")
+var vertexB = document.querySelector("#B .circle")
+var vertexC = document.querySelector("#C .circle")
+var vertexD = document.querySelector("#D .circle")
 
 makeLine(vertexA,vertexB)
 
