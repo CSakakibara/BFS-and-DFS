@@ -41,15 +41,16 @@
     }
 
     .vertex input:checked~.circle {
-        background: lightseagreen;
+        background-color: lightseagreen;
     }
 
     /* make text visible */
     .title {
         position: absolute;
         z-index: 1;
-        left: 26px;
+        left: 27px;
         top: 9px;
+        color: blueviolet;
     }
 
     #A {
@@ -87,11 +88,23 @@
         left: 250px;
         top: 270px;
     }
+
+    #G {
+        position: absolute;
+        left: 750px;
+        top: 290px;
+    }
+
+    #H {
+        position: absolute;
+        left: 1050px;
+        top: 260px;
+    }
 </style>
 
 <body>
 
-    <h1>Choose One</h1>
+    <h1>Escolha um vértice</h1>
 
     <label id="A" class="vertex">
         <input type="radio" checked="checked" name="radio">
@@ -126,12 +139,27 @@
         <span class="title">F</span>
         <span class="circle"></span>
     </label>
+    <label id="G" class="vertex">
+        <input type="radio" name="radio">
+        <span class="title">G</span>
+        <span class="circle"></span>
+    </label>
+    <label id="H" class="vertex">
+        <input type="radio" name="radio">
+        <span class="title">H</span>
+        <span class="circle"></span>
+    </label>
 
     <button type="button" onclick="breadthFirstSearch()">Busca em Largura
-    </button><br>
+    </button>
+    <br>
     <button type="button" onclick="breadthFirstSearch()">Busca em Profundidade
     </button>
+    <br>
+    <button type="button" onclick="resetVertexes()">Reset
+    </button>
 
+    <script src="./vertex.js"></script>
     <script src="./lines.js"></script>
     <script src="./index.js"></script>
     <script src="./search.js"></script>
