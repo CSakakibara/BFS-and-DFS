@@ -16,8 +16,8 @@ function firstInQueue() {
 function breadthFirstSearch() {
     //    var checkboxMarcado = document.querySelector("input[name=radio]:checked")
     //    var containerChecked = vertexChecked.parentElement()
-    let selectedElement ={
-        circle:  document.querySelector("input[name=radio]:checked ~ .circle"),
+    let selectedElement = {
+        circle: document.querySelector("input[name=radio]:checked ~ .circle"),
         text: document.querySelector("input[name=radio]:checked ~ .title")
     }
     let distance = 0
@@ -36,8 +36,8 @@ function breadthFirstSearch() {
         add2Queue(elementToVertex(aux)) //passando o vertex pra fila
     }, frequency * n)//vertice selecionado é indicado em cinza e adicionado a fila
     n = n + 1
-
-    while (queue.length > 0) {
+    setTimeout(() => {
+        while (queue.length > 0) {
             let marking = firstInQueue() //guardando o vertex antes de tirar da fila
             remove2Queue() //tira da fila
             distance = distance + 1 //atualiza a distancia atual
@@ -50,9 +50,11 @@ function breadthFirstSearch() {
                 }
             })
             vertexToElement(marking).circle.style.background = "black" //marca como já finalizado
-    }
+        }
+    }, frequency * n)
+
 }
 
-function resetVertexes(){
+function resetVertexes() {
     location.reload()
 }
