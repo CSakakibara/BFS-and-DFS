@@ -1,5 +1,6 @@
 let action = false
 let queue = new Array()
+const frequency = 1000
 
 function resetVertexes() {
     location.reload()
@@ -35,22 +36,23 @@ async function breadthFirstSearch() {
         }) //exibe a distancia inicial infinito para todos os vertices
         selectedVertex.distance = 0
         selectedVertex.title.innerText = selectedVertex.distance  //distancia 0 no vertice selecionado
-        await sleep(2000)
+        await sleep(frequency)
         selectedVertex.circle.style.background = "dimgray"
         add2Queue(selectedVertex) //passando o vertex pra fila
         while (queue.length > 0) {
             let marking = firstInQueue() //guardando o vertex antes de tirar da fila
             remove2Queue() //tira da fila
-            marking.neighbors.forEach(async (item) => { //analisa vizinhos para colocar na fila
-                if (item.circle.style.background == "white none repeat scroll 0% 0%") { //se ainda não foi verificado
-                    item.parent = marking
-                    item.distance = marking.distance + 1
-                    item.circle.style.background = "dimgray" //marca como verificado
-                    item.title.innerText = item.distance //mostra a distancia
-                    add2Queue(item) //adiciona na fila
+            for (i = 0; i < marking.neighbors.length; i++) { //analisa vizinhos para colocar na fila
+                if (marking.neighbors[i].circle.style.background == "white none repeat scroll 0% 0%") { //se ainda não foi verificado
+                    marking.neighbors[i].parent = marking
+                    marking.neighbors[i].distance = marking.distance + 1
+                    await sleep(frequency)
+                    marking.neighbors[i].circle.style.background = "dimgray" //marca como verificado
+                    marking.neighbors[i].title.innerText = marking.neighbors[i].distance //mostra a distancia
+                    add2Queue(marking.neighbors[i]) //adiciona na fila
                 }
-            })
-            await sleep(2000)
+            }
+            await sleep(frequency)
             marking.circle.style.background = "black" //marca como já finalizado
         }
     }
