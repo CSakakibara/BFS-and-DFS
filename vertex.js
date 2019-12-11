@@ -1,7 +1,10 @@
 class Vertex{
-    constructor(title, neighbors, parent){
+    constructor(id, title, circle){
+        this.id = id
         this.title = title
-        this.neighbors = neighbors
-        this.parent = parent
+        this.circle = circle
+        this.neighbors = []
+        this.parent = null
+        this.distance = "∞"
     }
 }
