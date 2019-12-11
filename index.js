@@ -1,11 +1,11 @@
-let vertexA = new Vertex("A" ,document.querySelector("#A .title") ,document.querySelector("#A .circle"))
-let vertexB = new Vertex("B" ,document.querySelector("#B .title") ,document.querySelector("#B .circle"))
-let vertexC = new Vertex("C" ,document.querySelector("#C .title") ,document.querySelector("#C .circle"))
-let vertexD = new Vertex("D" ,document.querySelector("#D .title") ,document.querySelector("#D .circle"))
-let vertexE = new Vertex("E" ,document.querySelector("#E .title") ,document.querySelector("#E .circle"))
-let vertexF = new Vertex("F" ,document.querySelector("#F .title") ,document.querySelector("#F .circle"))
-let vertexG = new Vertex("G" ,document.querySelector("#G .title") ,document.querySelector("#G .circle"))
-let vertexH = new Vertex("H" ,document.querySelector("#H .title") ,document.querySelector("#H .circle"))
+let vertexA = new Vertex(document.querySelector("#A .title"), document.querySelector("#A .circle"), document.querySelector("#A .f"))
+let vertexB = new Vertex(document.querySelector("#B .title"), document.querySelector("#B .circle"), document.querySelector("#B .f"))
+let vertexC = new Vertex(document.querySelector("#C .title"), document.querySelector("#C .circle"), document.querySelector("#C .f"))
+let vertexD = new Vertex(document.querySelector("#D .title"), document.querySelector("#D .circle"), document.querySelector("#D .f"))
+let vertexE = new Vertex(document.querySelector("#E .title"), document.querySelector("#E .circle"), document.querySelector("#E .f"))
+let vertexF = new Vertex(document.querySelector("#F .title"), document.querySelector("#F .circle"), document.querySelector("#F .f"))
+let vertexG = new Vertex(document.querySelector("#G .title"), document.querySelector("#G .circle"), document.querySelector("#G .f"))
+let vertexH = new Vertex(document.querySelector("#H .title"), document.querySelector("#H .circle"), document.querySelector("#H .f"))
 
 vertexA.neighbors = [vertexB, vertexE]
 vertexB.neighbors = [vertexA, vertexF]
@@ -28,7 +28,7 @@ makeLine(vertexG.circle, vertexH.circle)
 
 
 // associar objetos e elementos
-function findVertexById(title) {
+function findVertexByTitle(title) {
     switch (title.innerText) {
         case "A":
             return vertexA

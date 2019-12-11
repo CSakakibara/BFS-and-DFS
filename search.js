@@ -6,6 +6,11 @@ function resetVertexes() {
     location.reload()
 }
 
+function checkVertex(vertexTitle) {
+    let vertexToCheck = document.querySelector(`#${vertexTitle} input`)
+    vertexToCheck.checked = true
+}
+
 function add2Queue(vertex) {
     queue[queue.length] = vertex
 }
@@ -20,19 +25,18 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
 async function breadthFirstSearch() {
     if (action == false) {
         action = true
         //    var containerChecked = vertexChecked.parentElement()
-        selectedVertex = findVertexById(document.querySelector("input[name=radio]:checked ~ .title"))
+        selectedVertex = findVertexByTitle(document.querySelector("input[name=radio]:checked ~ .title"))
         let circleList = document.querySelectorAll("span.circle") // seleciona todos os circulos
         circleList.forEach((item) => {
             item.style.background = "white"
         }) //todos começam em branco
         let titleList = document.querySelectorAll("span.title") //seleciona todas as letras
         titleList.forEach((item) => {
-            item.innerText = findVertexById(item).distance
+            item.innerText = findVertexByTitle(item).distance
         }) //exibe a distancia inicial infinito para todos os vertices
         selectedVertex.distance = 0
         selectedVertex.title.innerText = selectedVertex.distance  //distancia 0 no vertice selecionado
@@ -57,3 +61,23 @@ async function breadthFirstSearch() {
         }
     }
 }
+
+function dfsVisit(vertex) {
+    vertex.circle.style.background = "dimgray"
+    let time = time + 1
+    vertex.title.innerText = time
+    for (i = 0; i < vertex.neighbors.length; i++) {
+        if (vertex.neighbors[i].circle.style.background == "white none repeat scroll 0% 0%") {
+            vertex.neighbors[i].parent = vertex
+            dfsVisit(vertex.neighbors[i])
+        }
+    }
+    vertex.circle.style.background = "black"
+    time = time + 1
+    vertex.f.innerText = time
+}
+
+function depthFirstSearch() {
+
+}
+
