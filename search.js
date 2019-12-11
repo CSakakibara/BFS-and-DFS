@@ -30,7 +30,7 @@ async function breadthFirstSearch() {
     if (action == false) {
         action = true
         //    var containerChecked = vertexChecked.parentElement()
-        selectedVertex = findVertexByTitle(document.querySelector("input[name=radio]:checked ~ .title"))
+        let selectedVertex = findVertexByTitle(document.querySelector("input[name=radio]:checked ~ .title").innerText)
         let circleList = document.querySelectorAll("span.circle") // seleciona todos os circulos
         circleList.forEach((item) => {
             item.style.background = "white"
