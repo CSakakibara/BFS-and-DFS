@@ -1,6 +1,7 @@
 let action = false
 let queue = new Array()
 const frequency = 1000
+let time = 0
 
 function resetVertexes() {
     location.reload()
@@ -36,7 +37,7 @@ async function breadthFirstSearch() {
         }) //todos começam em branco
         let titleList = document.querySelectorAll("span.title") //seleciona todas as letras
         titleList.forEach((item) => {
-            item.innerText = findVertexByTitle(item).distance
+            item.innerText = findVertexByTitle(item.innerText).distance
         }) //exibe a distancia inicial infinito para todos os vertices
         selectedVertex.distance = 0
         selectedVertex.title.innerText = selectedVertex.distance  //distancia 0 no vertice selecionado
@@ -64,7 +65,7 @@ async function breadthFirstSearch() {
 
 function dfsVisit(vertex) {
     vertex.circle.style.background = "dimgray"
-    let time = time + 1
+    time = time + 1
     vertex.title.innerText = time
     for (i = 0; i < vertex.neighbors.length; i++) {
         if (vertex.neighbors[i].circle.style.background == "white none repeat scroll 0% 0%") {
@@ -78,6 +79,27 @@ function dfsVisit(vertex) {
 }
 
 function depthFirstSearch() {
+    if (action == false) {
+        action = true
+        selectedVertex = findVertexByTitle(document.querySelector("input[name=radio]:checked ~ .title").innerText)
+        let circleList = document.querySelectorAll("span.circle") // seleciona todos os circulos
+        circleList.forEach((item) => {
+            item.style.background = "white"
+        })
+        let titleList = document.querySelectorAll("span.title")
+        let idList = []
+        for (i = 0; i < titleList.length; i++) {
+            idList[i] = titleList[i].innerText
+        }
+        dfsVisit(selectedVertex)
+        for (i = 0; i < idList.length; i++) {
+            let vertex = findVertexByTitle(idList[i])
+            if (vertex.circle.style.background == "white none repeat scroll 0% 0%") {
+                dfsVisit(vertex)
+            }
+        }
+        time = 0
+    }
 
 }
 

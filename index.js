@@ -29,7 +29,7 @@ makeLine(vertexG.circle, vertexH.circle)
 
 // associar objetos e elementos
 function findVertexByTitle(title) {
-    switch (title.innerText) {
+    switch (title) { //não coloquei o innerText aqui pq assim da pra salvar os titulos num array imutavel
         case "A":
             return vertexA
         case "B":
