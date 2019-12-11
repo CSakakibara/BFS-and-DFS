@@ -37,21 +37,20 @@ function breadthFirstSearch() {
     }, frequency * n)//vertice selecionado é indicado em cinza e adicionado a fila
     n = n + 1
 
-        while (queue.length > 0) {
-                let marking = firstInQueue() //guardando o vertex antes de tirar da fila
-                remove2Queue()
-                distance = distance + 1
-                marking.neighbors.forEach((item) => {
-                    let elementNeighbor = vertexToElement(item)
-                    if (elementNeighbor.circle.style.background == "white none repeat scroll 0% 0%") {
-                        item.circle.style.background = "dimgray"
-                        item.title.innerText = distance
-                        add2Queue(item)
-                    }
-                })
-                vertexToElement(marking).circle.style.background = "black"
-        }
-
+    while (queue.length > 0) {
+            let marking = firstInQueue() //guardando o vertex antes de tirar da fila
+            remove2Queue() //tira da fila
+            distance = distance + 1 //atualiza a distancia atual
+            marking.neighbors.forEach((item) => { //analisa vizinhos para colocar na fila
+                let elementNeighbor = vertexToElement(item) //pera o elemento do vertex vizinho
+                if (elementNeighbor.circle.style.background == "white none repeat scroll 0% 0%") { //se ainda não foi verificado
+                    elementNeighbor.circle.style.background = "dimgray" //marca como verificado
+                    elementNeighbor.title.innerText = distance //mostra a distancia
+                    add2Queue(item) //adiciona na fila
+                }
+            })
+            vertexToElement(marking).circle.style.background = "black" //marca como já finalizado
+    }
 }
 
 function resetVertexes(){
